@@ -1,0 +1,83 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function adminDocument(uid) {
+      return /databases/$(database)/documents/admins/$(uid);
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(adminDocument(request.auth.uid))
+        && get(adminDocument(request.auth.uid)).data.active == true
+        && get(adminDocument(request.auth.uid)).data.role in ['owner', 'editor', 'viewer'];
+    }
+
+    function canEditContent() {
+      return isAdmin()
+        && get(adminDocument(request.auth.uid)).data.role in ['owner', 'editor'];
+    }
+
+    // Admin grants are created only by the Firebase project owner in Console
+    // or through the Admin SDK. A client cannot grant itself access.
+    match /admins/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+      allow list, create, update, delete: if false;
+    }
+
+    // Public pages may read only published content. Admins can also read drafts.
+    match /siteContent/{section} {
+      allow get: if !exists(/databases/$(database)/documents/siteContent/$(section))
+        || resource.data.published == true
+        || isAdmin();
+      allow list: if isAdmin();
+      allow create, update, delete: if canEditContent();
+    }
+
+    // Append-only admin audit trail.
+    match /siteActivity/{activityId} {
+      allow get, list: if isAdmin();
+      allow create: if canEditContent()
+        && request.resource.data.keys().hasOnly(['action', 'section', 'actor', 'createdAt'])
+        && request.resource.data.action is string
+        && request.resource.data.action.size() <= 100
+        && request.resource.data.section is string
+        && request.resource.data.section.size() <= 40
+        && request.resource.data.actor is string
+        && request.resource.data.actor.size() <= 160
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
+    match /users/{uid} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == uid;
+      }
+
+      function validUserData() {
+        return request.resource.data.keys().hasAll(['profile', 'favorites', 'preferences', 'updatedAt'])
+          && request.resource.data.keys().hasOnly(['profile', 'favorites', 'preferences', 'updatedAt'])
+          && request.resource.data.profile is map
+          && request.resource.data.profile.keys().hasOnly(['name', 'avatar'])
+          && request.resource.data.profile.name is string
+          && request.resource.data.profile.name.size() <= 24
+          && request.resource.data.profile.avatar in ['none', 'lucia', 'jason']
+          && request.resource.data.favorites is list
+          && request.resource.data.favorites.size() <= 12
+          && request.resource.data.preferences is map
+          && request.resource.data.preferences.keys().hasOnly(['contrast', 'largeText', 'motion'])
+          && request.resource.data.preferences.contrast is bool
+          && request.resource.data.preferences.largeText is bool
+          && request.resource.data.preferences.motion is bool
+          && request.resource.data.updatedAt == request.time;
+      }
+
+      allow read: if isOwner() || isAdmin();
+      allow create, update: if isOwner() && validUserData();
+      allow delete: if isOwner();
+    }
+  }
+}

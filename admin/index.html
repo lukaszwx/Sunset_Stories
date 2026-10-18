@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; upgrade-insecure-requests; base-uri 'self'; object-src 'none'; form-action 'self'; frame-src https://www.youtube-nocookie.com https://sunsetvi.firebaseapp.com; img-src 'self' data: blob: https://res.cloudinary.com https://i.ytimg.com https://www.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://firebaseinstallations.googleapis.com https://sunsetvi-image-api.epiccow8.chatgpt.site https://api.cloudinary.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.googleapis.com https://*.google-analytics.com">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#170c23">
+    <title>Admin — Sunset Stories</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="admin.css?v=33">
+    <script type="module" src="admin.js?v=33">
+    </script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <header class="topbar">
+        <a class="brand" href="../" aria-label="Sunset Stories — início"><span class="brand-vi">VI</span><span>SUNSET<br>STORIES</span></a><span class="admin-label">ADMIN CONTROL</span><a class="back-site" href="../">VOLTAR AO SITE ↗</a>
+      </header>
+      <main>
+        <section id="access-screen" class="access-screen">
+          <div class="access-card">
+            <p class="eyebrow">
+              SUNSET STORIES / ADMIN
+            </p>
+            <h1>
+              Área de<br><em>controle.</em>
+            </h1>
+            <p class="muted">
+              Entre com sua conta do Sunset Stories. Somente contas autorizadas pelo Firebase podem continuar.
+            </p>
+            <form id="admin-login" class="login-form">
+              <label for="admin-email">
+                E-MAIL
+              </label>
+              <input id="admin-email" type="email" autocomplete="username" required placeholder="voce@exemplo.com">
+              <label for="admin-password">
+                SENHA
+              </label>
+              <input id="admin-password" type="password" autocomplete="current-password" required placeholder="Sua senha">
+              <button class="button" type="submit">
+                ENTRAR NO PAINEL <span>↗</span>
+              </button>
+            </form>
+            <p id="access-status" class="status" role="status" aria-live="polite">
+            </p>
+            <section id="not-admin" class="notice" hidden>
+              <b>CONTA SEM PERMISSÃO ADMINISTRATIVA</b>
+              <p id="not-admin-copy">
+                Sua conta está autenticada, mas ainda não recebeu acesso administrativo.
+              </p>
+              <small>UID DA CONTA</small><code id="admin-uid"></code>
+              <p>
+                Publique as regras atualizadas do Firestore e crie <code>admins/{UID}</code> com os campos <code>active: true</code> e <code>role: "owner"</code>. O documento deve ser criado pelo Console do Firebase; o próprio site não permite que uma conta conceda acesso a si mesma.
+              </p>
+              <a class="rules-link" href="firestore-rules.txt" download>BAIXAR REGRAS ATUALIZADAS ↗</a>
+            </section>
+            <button id="admin-logout-access" class="text-button" type="button" hidden>
+              Sair desta conta
+            </button>
+          </div>
+        </section>
+        <section id="admin-app" class="admin-app" hidden>
+          <aside class="sidebar" aria-label="Menu administrativo">
+            <div class="sidebar-heading">
+              PAINEL
+            </div>
+            <nav id="admin-nav">
+              <button class="nav-item active" data-view="overview">
+                Visão geral
+              </button>
+              <button class="nav-item" data-view="gallery">
+                Galeria
+              </button>
+              <button class="nav-item" data-view="content">
+                Conteúdo
+              </button>
+              <button class="nav-item" data-view="members">
+                Membros
+              </button>
+              <button class="nav-item" data-view="analytics">
+                Métricas
+              </button>
+              <button class="nav-item" data-view="settings">
+                Configurações
+              </button>
+              <button class="nav-item" data-view="activity">
+                Atividade
+              </button>
+            </nav>
+            <div class="sidebar-bottom">
+              <span class="status-dot"></span><span id="role-label">Permissão verificada</span>
+            </div>
+          </aside>
+          <div class="workspace">
+            <div class="workspace-head">
+              <div>
+                <p class="eyebrow">
+                  VI / THE INNER CIRCLE
+                </p>
+                <h1 id="view-title">
+                  Visão geral
+                </h1>
+              </div>
+              <div class="head-actions">
+                <span id="admin-email-label"></span>
+                <button id="admin-logout" class="text-button" type="button">
+                  SAIR ↗
+                </button>
+              </div>
+            </div>
+            <p id="panel-status" class="status" role="status" aria-live="polite">
+            </p>
+            <section class="view active" data-panel="overview">
+              <div class="stat-grid">
+                <article class="stat-card">
+                  <span>CENAS NA GALERIA</span><b id="stat-gallery">—</b><small>Conteúdo publicado</small>
+                </article>
+                <article class="stat-card">
+                  <span>PERGUNTAS FREQUENTES</span><b id="stat-faq">—</b><small>Respostas cadastradas</small>
+                </article>
+                <article class="stat-card">
+                  <span>PERFIS DE MEMBROS</span><b id="stat-members">—</b><small>Dados mínimos de perfil</small>
+                </article>
+                <article class="stat-card">
+                  <span>ALTERAÇÕES RECENTES</span><b id="stat-activity">—</b><small>Últimos registros do painel</small>
+                </article>
+              </div>
+              <div class="overview-grid">
+                <article class="panel-card">
+                  <p class="eyebrow">
+                    PUBLICAÇÃO
+                  </p>
+                  <h2>
+                    Conteúdo do site
+                  </h2>
+                  <p class="muted">
+                    Atualize cenas, trailers, avisos e respostas frequentes. Alterações publicadas aparecem para todos os visitantes.
+                  </p>
+                  <button class="button" data-go="gallery">
+                    GERENCIAR GALERIA <span>↗</span>
+                  </button>
+                </article>
+                <article class="panel-card">
+                  <p class="eyebrow">
+                    PRIVACIDADE
+                  </p>
+                  <h2>
+                    Permissão ativa
+                  </h2>
+                  <p class="muted">
+                    Acesso concedido pelo documento administrativo do Firebase. Cada alteração fica registrada no histórico do painel.
+                  </p>
+                  <p class="permission-line">
+                    <span class="status-dot"></span><span id="permission-summary">Verificando permissão…</span>
+                  </p>
+                </article>
+              </div>
+            </section>
+            <section class="view" data-panel="gallery">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    01 / ACERVO VISUAL
+                  </p>
+                  <h2>
+                    Galeria
+                  </h2>
+                </div>
+                <button id="add-scene" class="button secondary" type="button">
+                  + NOVA CENA
+                </button>
+              </div>
+              <p class="muted">
+                Cada cena usa uma imagem: a prévia mostra o arquivo inteiro, e o Cloudinary gera versões leves para exibição. Selecione JPG, PNG, WebP ou AVIF de até 8 MB e salve para publicar. Também é possível usar um caminho <code>assets/…</code> ou URL HTTPS.
+              </p>
+              <p class="storage-note">
+                Os envios são autorizados pelo serviço de imagens e salvos no Cloudinary. O painel gera automaticamente uma versão otimizada para a galeria, sem duplicar o arquivo como miniatura.
+              </p>
+              <div id="gallery-editor" class="editor-list">
+              </div>
+              <button id="save-gallery" class="button" type="button">
+                SALVAR GALERIA <span>↗</span>
+              </button>
+            </section>
+            <section class="view" data-panel="content">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    02 / TEXTO E DESTAQUES
+                  </p>
+                  <h2>
+                    Conteúdo
+                  </h2>
+                </div>
+              </div>
+              <form id="home-form" class="form-card">
+                <p class="eyebrow">
+                  PÁGINA INICIAL
+                </p>
+                <h3>
+                  Chamada e aviso
+                </h3>
+                <label for="home-title">
+                  TÍTULO PRINCIPAL
+                </label>
+                <textarea id="home-title" rows="3" maxlength="100"></textarea>
+                <label for="home-description">
+                  TEXTO DE APOIO
+                </label>
+                <textarea id="home-description" rows="3" maxlength="220"></textarea>
+                <label for="home-featured">
+                  CENA DE DESTAQUE
+                </label>
+                <select id="home-featured">
+                </select>
+                <label for="home-notice">
+                  AVISO DO SITE
+                </label>
+                <input id="home-notice" maxlength="180" placeholder="Ex.: Novas cenas disponíveis na galeria.">
+                <label class="check-label">
+                  <input id="home-notice-active" type="checkbox"> Exibir aviso na página inicial
+                </label>
+                <button class="button" type="submit">
+                  SALVAR PÁGINA INICIAL <span>↗</span>
+                </button>
+              </form>
+              <form id="faq-form" class="form-card">
+                <p class="eyebrow">
+                  PERGUNTAS E RESPOSTAS
+                </p>
+                <div class="section-head compact">
+                  <h3>
+                    FAQ
+                  </h3>
+                  <button id="add-faq" class="button secondary" type="button">
+                    + ADICIONAR
+                  </button>
+                </div>
+                <div id="faq-editor" class="editor-list">
+                </div>
+                <button class="button" type="submit">
+                  SALVAR FAQ <span>↗</span>
+                </button>
+              </form>
+              <form id="trailer-form" class="form-card">
+                <p class="eyebrow">
+                  VÍDEO EM DESTAQUE
+                </p>
+                <h3>
+                  Trailer
+                </h3>
+                <label for="trailer-title">
+                  TÍTULO
+                </label>
+                <input id="trailer-title" maxlength="90">
+                <label for="trailer-url">
+                  LINK DO YOUTUBE
+                </label>
+                <input id="trailer-url" type="url" placeholder="https://www.youtube.com/watch?v=…">
+                <label for="trailer-thumbnail">
+                  IMAGEM DE CAPA
+                </label>
+                <input id="trailer-thumbnail" type="text" placeholder="assets/scene-02.webp ou URL HTTPS">
+                <button class="button" type="submit">
+                  SALVAR TRAILER <span>↗</span>
+                </button>
+              </form>
+            </section>
+            <section class="view" data-panel="members">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    03 / CONTAS
+                  </p>
+                  <h2>
+                    Membros
+                  </h2>
+                </div>
+                <button id="refresh-members" class="button secondary" type="button">
+                  ATUALIZAR
+                </button>
+              </div>
+              <p class="muted">
+                Consulte contas cadastradas, envie convites, bloqueie acessos e atribua permissões. Convites criam a conta e enviam um link para a pessoa definir a própria senha.
+              </p>
+              <p id="member-status" class="status" role="status" aria-live="polite">
+              </p>
+              <form id="create-member-form" class="form-card grant-role-form">
+                <p class="eyebrow">
+                  NOVO MEMBRO
+                </p>
+                <h3>
+                  Criar conta e enviar convite
+                </h3>
+                <p class="muted">
+                  A pessoa recebe um e-mail para definir a própria senha. O painel nunca exibe nem envia uma senha temporária.
+                </p>
+                <label for="create-member-email">
+                  E-MAIL
+                </label>
+                <input id="create-member-email" type="email" required placeholder="pessoa@exemplo.com">
+                <button class="button" type="submit">
+                  CRIAR CONTA E CONVIDAR <span>↗</span>
+                </button>
+              </form>
+              <form id="grant-role-form" class="form-card grant-role-form">
+                <p class="eyebrow">
+                  ACESSO ADMINISTRATIVO
+                </p>
+                <h3>
+                  Conceder ou remover papel
+                </h3>
+                <label for="grant-role-email">
+                  E-MAIL DE UMA CONTA EXISTENTE
+                </label>
+                <input id="grant-role-email" type="email" required placeholder="pessoa@exemplo.com">
+                <label for="grant-role-value">
+                  PAPEL
+                </label>
+                <select id="grant-role-value">
+                  <option value="viewer">
+                    Leitor — consulta
+                  </option>
+                  <option value="editor">
+                    Editor — publica conteúdo
+                  </option>
+                  <option value="owner">
+                    Owner — gerencia acessos
+                  </option>
+                  <option value="none">
+                    Sem acesso administrativo
+                  </option>
+                </select>
+                <button class="button" type="submit">
+                  SALVAR PERMISSÃO <span>↗</span>
+                </button>
+              </form>
+              <label class="member-search">
+                BUSCAR PERFIL<input id="member-search" type="search" placeholder="Nome ou personagem">
+              </label>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        E-MAIL
+                      </th>
+                      <th>
+                        PERFIL
+                      </th>
+                      <th>
+                        PAPEL
+                      </th>
+                      <th>
+                        CONTA
+                      </th>
+                      <th>
+                        ÚLTIMO ACESSO
+                      </th>
+                      <th>
+                        AÇÕES
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="members-table">
+                    <tr>
+                      <td colspan="6">
+                        Carregando contas…
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="view" data-panel="analytics">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    04 / PERFORMANCE
+                  </p>
+                  <h2>
+                    Métricas
+                  </h2>
+                </div>
+                <div class="analytics-actions">
+                  <label for="analytics-range">
+                    PERÍODO
+                  </label>
+                  <select id="analytics-range">
+                    <option value="7">
+                      7 dias
+                    </option>
+                    <option value="30" selected>
+                      30 dias
+                    </option>
+                    <option value="90">
+                      90 dias
+                    </option>
+                  </select>
+                  <button id="refresh-analytics" class="button secondary" type="button">
+                    ATUALIZAR
+                  </button>
+                </div>
+              </div>
+              <p id="analytics-status" class="status" role="status" aria-live="polite">
+              </p>
+              <div class="analytics-stats">
+                <article class="stat-card">
+                  <span>USUÁRIOS ATIVOS</span><b id="analytics-users">—</b><small>No período selecionado</small>
+                </article>
+                <article class="stat-card">
+                  <span>SESSÕES</span><b id="analytics-sessions">—</b><small>Visitas iniciadas</small>
+                </article>
+                <article class="stat-card">
+                  <span>VISUALIZAÇÕES</span><b id="analytics-views">—</b><small>Páginas e telas</small>
+                </article>
+              </div>
+              <div class="analytics-reports">
+                <article class="panel-card">
+                  <p class="eyebrow">
+                    CONTEÚDO
+                  </p>
+                  <h3>
+                    Páginas mais vistas
+                  </h3>
+                  <div id="analytics-pages" class="report-list">
+                    <p class="muted">
+                      Carregando dados…
+                    </p>
+                  </div>
+                </article>
+                <article class="panel-card">
+                  <p class="eyebrow">
+                    AQUISIÇÃO
+                  </p>
+                  <h3>
+                    Origem das sessões
+                  </h3>
+                  <div id="analytics-sources" class="report-list">
+                    <p class="muted">
+                      Carregando dados…
+                    </p>
+                  </div>
+                </article>
+              </div>
+              <p class="analytics-footnote">
+                Os dados vêm do GA4, só para visitantes que aceitaram métricas. <a href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer">Abrir Google Analytics ↗</a>
+              </p>
+            </section>
+            <section class="view" data-panel="settings">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    05 / IDENTIDADE E BUSCA
+                  </p>
+                  <h2>
+                    Configurações
+                  </h2>
+                </div>
+              </div>
+              <form id="settings-form" class="form-card">
+                <label for="seo-title">
+                  TÍTULO DO SITE
+                </label>
+                <input id="seo-title" maxlength="70">
+                <label for="seo-description">
+                  META DESCRIPTION
+                </label>
+                <textarea id="seo-description" rows="3" maxlength="180"></textarea>
+                <label for="seo-image">
+                  IMAGEM DE COMPARTILHAMENTO
+                </label>
+                <input id="seo-image" type="text" placeholder="assets/scene-10.webp ou URL HTTPS">
+                <button class="button" type="submit">
+                  SALVAR CONFIGURAÇÕES <span>↗</span>
+                </button>
+              </form>
+            </section>
+            <section class="view" data-panel="activity">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">
+                    06 / REGISTRO
+                  </p>
+                  <h2>
+                    Atividade
+                  </h2>
+                </div>
+                <button id="refresh-activity" class="button secondary" type="button">
+                  ATUALIZAR
+                </button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        AÇÃO
+                      </th>
+                      <th>
+                        SEÇÃO
+                      </th>
+                      <th>
+                        RESPONSÁVEL
+                      </th>
+                      <th>
+                        DATA
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="activity-table">
+                    <tr>
+                      <td colspan="4">
+                        Carregando histórico…
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <span>SUNSET STORIES / ADMIN</span><a href="../">VOLTAR À EXPERIÊNCIA ↗</a>
+      </footer>
+    </div>
+  </body>
+</html>

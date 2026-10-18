@@ -1,0 +1,16 @@
+# Dependências e resultados locais
+node_modules/
+dist/
+.vite/
+
+# Configurações locais
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

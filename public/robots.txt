@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://vi-sunset-stories.epiccow8.chatgpt.site/sitemap.xml
+
+Disallow: /admin/
+Disallow: /obrigado.html

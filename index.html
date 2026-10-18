@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VI — Sunset Stories | Experiência de fã de GTA VI</title>
+    <meta name="description" content="Explore uma experiência visual independente inspirada em GTA VI: conheça Lucia e Jason, assista ao trailer oficial e baixe imagens da galeria.">
+    <meta name="theme-color" content="#170c23">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; upgrade-insecure-requests; base-uri 'self'; object-src 'none'; form-action 'self'; frame-src https://www.youtube-nocookie.com https://sunsetvi.firebaseapp.com; img-src 'self' data: blob: https://res.cloudinary.com https://i.ytimg.com https://www.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://firebaseinstallations.googleapis.com https://sunsetvi-image-api.epiccow8.chatgpt.site https://api.cloudinary.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://*.googleapis.com https://*.google-analytics.com">
+    <meta property="og:title" content="VI — Sunset Stories">
+    <meta property="og:description" content="Uma experiência visual independente inspirada em GTA VI. Explore personagens, trailer e imagens para baixar.">
+    <meta property="og:image" content="https://vi-sunset-stories.epiccow8.chatgpt.site/assets/scene-10.webp">
+    <meta property="og:image:alt" content="Lucia e Jason ao pôr do sol em Leonida">
+    <meta name="twitter:image" content="https://vi-sunset-stories.epiccow8.chatgpt.site/assets/scene-10.webp">
+    <meta name="twitter:title" content="VI — Sunset Stories">
+    <meta name="twitter:description" content="Uma experiência visual independente inspirada em GTA VI.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://vi-sunset-stories.epiccow8.chatgpt.site/">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://identitytoolkit.googleapis.com">
+    <link rel="preload" as="image" href="assets/scene-10.webp" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v=33">
+    <script type="module" src="app.js?v=33">
+    </script>
+    <script type="module" src="firebase-auth.js?v=33">
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Pular para o conteúdo</a>
+    <div class="progress" aria-hidden="true">
+    </div>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Sunset Stories — início"><span class="header-mark" aria-hidden="true"><span>GTA</span><b>VI</b></span><span>SUNSET<br>STORIES</span></a>
+      <nav class="primary-nav" aria-label="Navegação principal">
+        <a href="#historia">A história</a><a href="#personagens">Personagens</a><a href="#trailers">Trailers</a><a href="#galeria">Galeria</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-trigger" href="#login" data-account-open aria-label="Abrir área do membro">ACESSAR ↗</a>
+        <button id="settings-open" class="settings-open" type="button" aria-haspopup="dialog" aria-controls="settings-dialog" aria-label="Abrir configurações">
+          <svg class="settings-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.2"/><path d="M5.2 20a6.8 6.8 0 0 1 13.6 0"/></svg><span>AJUSTES</span>
+        </button>
+        <button id="motion" class="motion" aria-pressed="false" aria-label="Reduzir animações">
+          MOVIMENTO <span>ON</span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section id="inicio" class="hero">
+        <div class="hero-art" aria-hidden="true">
+        </div>
+        <div class="hero-shade">
+        </div>
+        <div class="hero-content">
+          <aside id="site-announcement" class="site-announcement" hidden>
+          </aside>
+          <p class="eyebrow"><span></span> GTA VI / FAN EXPERIENCE</p>
+          <h1>O paraíso<br>tem seu<br><em>lado selvagem.</em></h1>
+          <p class="intro">Do último raio de sol ao primeiro neon.<br>Explore o outro lado do sonho.</p>
+          <a class="button" href="#historia">ENTRE NESSA HISTÓRIA <span>↗</span></a>
+        </div>
+        <div class="hero-bottom">
+          <span>LEONIDA STATE OF MIND</span><a href="#historia">ROLE PARA EXPLORAR ↓</a><span>01 / SUNSET</span>
+        </div>
+        <span class="hero-vi" aria-hidden="true">VI</span>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <div>
+          <span>SUNSET STORIES</span><img src="assets/vi-mark.svg" width="42" height="42" alt=""><span>VICE CITY NIGHTS</span><img src="assets/vi-mark.svg" width="42" height="42" alt=""><span>TWO AGAINST THE WORLD</span><img src="assets/vi-mark.svg" width="42" height="42" alt=""><span>SUNSET STORIES</span><img src="assets/vi-mark.svg" width="42" height="42" alt=""><span>VICE CITY NIGHTS</span><img src="assets/vi-mark.svg" width="42" height="42" alt=""><span>TWO AGAINST THE WORLD</span><img src="assets/vi-mark.svg" width="42" height="42" alt="">
+        </div>
+      </div>
+      <section id="historia" class="story section">
+        <div class="section-label reveal">
+          01 / ENTRE LUZ E SOMBRA
+        </div>
+        <div class="story-heading reveal">
+          <h2>Algumas histórias<br>começam com um <em>risco.</em></h2>
+          <p>Um céu que parece não acabar. Ruas que nunca desaceleram. E duas pessoas no centro de tudo.<br><br>Explore a atmosfera de Leonida em uma experiência visual independente inspirada em GTA VI.</p>
+        </div>
+        <a href="#galeria" class="wide-image reveal"><img src="assets/scene-02.webp" width="1536" height="864" loading="lazy" alt="Ilustração de Lucia e Jason com bandanas diante de um posto sob um céu lilás"><span>DUAS PESSOAS. UM MUNDO INTEIRO.<b>EXPLORAR AS CENAS ↗</b></span></a>
+      </section>
+      <section id="personagens" class="duo section">
+        <div class="section-label reveal">
+          02 / CONHECENDO OS PERSONAGENS
+        </div>
+        <div class="duo-heading reveal">
+          <h2>Lucia.<br><em>Jason.</em></h2>
+          <p>Dois nomes.<br>A mesma direção.</p>
+        </div>
+        <div class="character-grid">
+          <button class="character reveal" data-scene="5">
+            <img src="assets/scene-05.webp" width="1536" height="864" loading="lazy" alt="Lucia sentada em uma academia com luz do sol atravessando as janelas"><span class="character-tag">01 / LUCIA</span>
+            <div>
+              <h3>Lucia</h3>
+              <p class="character-description">Presença marcante, olhar atento e uma história que cruza o brilho com o perigo.</p>
+              <span>01 / LUCIA CAMINOS ↗</span>
+            </div>
+          </button>
+          <button class="character reveal" data-scene="8">
+            <img src="assets/scene-08.webp" width="1536" height="864" loading="lazy" alt="Jason atrás de uma cerca com luzes vermelhas e azuis ao fundo"><span class="character-tag">02 / JASON</span>
+            <div>
+              <h3>Jason</h3>
+              <p class="character-description">Calma por fora, tensão no horizonte. Cada escolha pode mudar o rumo da noite.</p>
+              <span>02 / JASON DUVAL ↗</span>
+            </div>
+          </button>
+        </div>
+        <div class="character-dossiers">
+          <details>
+            <summary>ARQUIVO DE FÃ / LUCIA CAMINOS <span>+</span></summary>
+            <div>
+              <p>Esta ficha é uma leitura visual de fã baseada nas imagens desta página. As cenas mostram Lucia entre momentos de pausa, movimento e tensão — sem afirmar detalhes de enredo além do material oficial.</p>
+              <button class="dossier-link" data-scene="5">
+                ABRIR CENA RELACIONADA ↗
+              </button>
+            </div>
+          </details>
+          <details>
+            <summary>ARQUIVO DE FÃ / JASON DUVAL <span>+</span></summary>
+            <div>
+              <p>Uma leitura de fã construída a partir da galeria: Jason aparece ligado à vida nas ruas e à parceria com Lucia. A interpretação não substitui informações confirmadas pela Rockstar Games.</p>
+              <button class="dossier-link" data-scene="8">
+                ABRIR CENA RELACIONADA ↗
+              </button>
+            </div>
+          </details>
+        </div>
+      </section>
+      <section id="noite" class="night">
+        <img src="assets/scene-07.webp" width="1536" height="864" loading="lazy" alt="Dois personagens observam um carro em chamas em um galpão">
+        <div class="night-content reveal">
+          <p class="eyebrow">03 / AFTER HOURS</p>
+          <h2>Quando o sol cai,<br><em>tudo muda.</em></h2>
+          <a class="button outline" href="#galeria">VEJA O OUTRO LADO <span>↗</span></a>
+        </div>
+      </section>
+      <section id="trailers" class="trailers section">
+        <div class="section-label reveal">
+          04 / TRAILER OFICIAL
+        </div>
+        <div class="gallery-heading reveal">
+          <h2>Assista.<br><em>Sinta a cidade.</em></h2>
+          <p>Trailer 2 oficial de GTA VI, publicado pela Rockstar Games.</p>
+        </div>
+        <button class="trailer-player" id="play-trailer" aria-label="Reproduzir Trailer 2 oficial de GTA VI">
+          <img src="assets/scene-02.webp" alt="Lucia e Jason sob o céu rosa, capa visual do trailer"><span class="play-ring" aria-hidden="true">▶</span><span class="trailer-caption"><b>GRAND THEFT AUTO VI</b><small>TRAILER 2 / ROCKSTAR GAMES ↗</small></span>
+        </button>
+        <p class="trailer-note">Ao reproduzir, o player do YouTube será carregado. <a href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer">Assistir no YouTube ↗</a></p>
+      </section>
+      <section id="galeria" class="gallery section">
+        <div class="section-label reveal">
+          05 / POSTAIS DO CAOS
+        </div>
+        <div class="gallery-heading reveal">
+          <h2>Uma cidade.<br><em>Mil atmosferas.</em></h2>
+          <p>Explore cada detalhe, baixe imagens em alta resolução e salve suas favoritas na coleção.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Coleções da galeria">
+          <button class="active" data-filter="all" aria-pressed="true">
+            TODAS AS CENAS <sup>12</sup>
+          </button>
+          <button data-filter="sunset" aria-pressed="false">
+            SUNSET
+          </button>
+          <button data-filter="action" aria-pressed="false">
+            AÇÃO
+          </button>
+          <button data-filter="favorites" aria-pressed="false">
+            MINHA COLEÇÃO <sup id="favorite-count">0</sup>
+          </button>
+        </div>
+        <div class="search-panel" role="search">
+          <label class="search-box" for="gallery-search">
+            <span aria-hidden="true">⌕</span><input id="gallery-search" type="search" placeholder="Buscar cena, personagem ou atmosfera…" autocomplete="off"><kbd>/</kbd>
+          </label>
+          <label class="filter-select">
+            PERSONAGEM
+            <select id="character-filter">
+              <option value="all">
+                Todos
+              </option>
+              <option value="lucia">
+                Lucia
+              </option>
+              <option value="jason">
+                Jason
+              </option>
+              <option value="duo">
+                Lucia + Jason
+              </option>
+            </select>
+          </label>
+          <label class="filter-select">
+            ORDEM
+            <select id="gallery-sort">
+              <option value="curated">
+                Curadoria
+              </option>
+              <option value="az">
+                A–Z
+              </option>
+              <option value="za">
+                Z–A
+              </option>
+            </select>
+          </label>
+          <button id="clear-search" class="clear-search" type="button">
+            LIMPAR FILTROS
+          </button>
+        </div>
+        <p class="search-status" id="search-status" aria-live="polite"></p>
+        <p class="download-guidance">Para baixar uma imagem, selecione <strong>BAIXAR</strong> no cartão ou abra a cena e escolha <strong>BAIXAR IMAGEM</strong>. Os arquivos são imagens da galeria; o jogo não é distribuído aqui.</p>
+        <div class="gallery-grid" id="gallery-grid">
+        </div>
+        <p id="empty-favorites" class="empty-favorites" hidden>Nenhuma cena na sua coleção ainda. Toque no coração de uma imagem para guardá-la neste dispositivo.</p>
+        <p id="empty-search" class="empty-favorites" hidden>Nenhuma cena encontrada. Tente outra palavra ou limpe os filtros.</p>
+      </section>
+      <section id="fontes" class="sources section">
+        <div class="section-label reveal">
+          06 / NOTAS OFICIAIS
+        </div>
+        <div class="sources-card reveal">
+          <div>
+            <p class="eyebrow">ATUALIZAÇÕES COM FONTE E DATA</p>
+            <h2>Direto de<br><em>Leonida.</em></h2>
+            <p>Um destaque oficial, com data e link para a origem. Esta página é independente; novas informações só entram aqui depois de confirmação pela Rockstar Games.</p>
+            <article class="official-update">
+              <time datetime="2026-10-08">08 OUT 2026</time>
+              <div>
+                <h3>A música de Grand Theft Auto VI</h3>
+                <p>A página oficial apresenta as estações de rádio e novidades sobre a música do jogo.</p>
+                <a href="https://www.rockstargames.com/VI/music" target="_blank" rel="noopener noreferrer">VER NA PÁGINA OFICIAL ↗</a>
+              </div>
+            </article>
+            <p class="source-refresh">Fonte verificada em 14 out 2026. <a href="https://www.rockstargames.com/newswire/" target="_blank" rel="noopener noreferrer">Ver todas as notícias oficiais ↗</a></p>
+          </div>
+          <a class="button outline" href="https://www.rockstargames.com/VI" target="_blank" rel="noopener noreferrer">SITE OFICIAL DE GTA VI <span>↗</span></a>
+        </div>
+      </section>
+      <section id="faq" class="faq section">
+        <div class="section-label reveal">
+          07 / ANTES DE PARTIR
+        </div>
+        <div class="faq-layout">
+          <h2 class="reveal">Quer saber<br><em>mais?</em></h2>
+          <div>
+            <details>
+              <summary>Esta é a página oficial de GTA VI?<span>+</span></summary>
+              <p>Não. Sunset Stories é uma experiência independente de fã e não tem vínculo com a Rockstar Games.</p>
+            </details>
+            <details>
+              <summary>As imagens representam o jogo final?<span>+</span></summary>
+              <p>A galeria reúne imagens fornecidas como referências visuais. Este projeto não confirma a origem oficial de cada arte nem representa recursos ou cenas do jogo final.</p>
+            </details>
+            <details>
+              <summary>Posso jogar ou baixar GTA VI aqui?<span>+</span></summary>
+              <p>Não. Esta página é uma experiência visual. Informações de compra e disponibilidade devem ser consultadas nos canais oficiais.</p>
+            </details>
+            <details>
+              <summary>Como usar a galeria?<span>+</span></summary>
+              <p>Filtre por atmosfera, abra uma cena e use os controles para navegar ou baixar a imagem. Isso não baixa arquivos do jogo.</p>
+            </details>
+            <details>
+              <summary>Posso desligar as animações?<span>+</span></summary>
+              <p>Sim. Use o botão Movimento no topo. A página também respeita a preferência de movimento reduzido do seu dispositivo.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section id="final" class="outro">
+        <img src="assets/scene-09.webp" width="1536" height="864" loading="lazy" alt="Arte de Lucia e Jason junto a um carro clássico entre palmeiras ao pôr do sol">
+        <div class="reveal">
+          <p class="eyebrow">THE SUN NEVER REALLY SETS.</p>
+          <h2>Até o próximo<br><em>pôr do sol.</em></h2>
+          <a class="button" href="#inicio">VOLTAR AO COMEÇO <span>↑</span></a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="brand footer-brand-logo" href="#inicio" aria-label="Sunset Stories — voltar ao início"><img src="assets/vi-sunset-stories.svg" width="400" height="140" alt="Logo VI Sunset Stories em branco com contorno lilás"></a>
+      <div class="footer-credit" aria-label="Criação visual por Nox Vesper">
+        <span>BY</span><img src="assets/nox-vesper-mark.png" width="48" height="48" alt=""><strong>NOX VESPER</strong>
+      </div>
+      <p>Experiência visual independente de fã. GTA, Grand Theft Auto e as marcas relacionadas pertencem aos seus respectivos titulares. Este site não é afiliado nem endossado pela Rockstar Games.</p>
+      <a href="privacidade.html">Privacidade ↗</a><a href="termos.html">Termos ↗</a>
+    </footer>
+    <a class="mobile-cta" href="#galeria">EXPLORAR GALERIA ↗</a>
+    <div id="toast" class="toast" role="status" aria-live="polite">
+    </div>
+    <aside id="consent-banner" class="consent-banner" aria-label="Preferências de privacidade" hidden>
+      <div>
+        <b>UM MOMENTO, VIAJANTE.</b>
+        <p>Podemos usar métricas de uso para melhorar o Sunset Stories? Sua escolha fica salva neste dispositivo.</p>
+        <a href="privacidade.html">Saiba mais sobre privacidade ↗</a>
+      </div>
+      <div class="consent-actions">
+        <button id="consent-reject" type="button">
+          AGORA NÃO
+        </button>
+        <button id="consent-accept" type="button">
+          ACEITAR MÉTRICAS
+        </button>
+      </div>
+    </aside>
+    <dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title">
+      <button class="account-close" data-account-close aria-label="Fechar">
+        ✕
+      </button>
+      <p class="eyebrow">VI / THE INNER CIRCLE</p>
+      <h2 id="account-title">ENTRE NA<br><em>HISTÓRIA.</em></h2>
+      <div class="auth-tabs" role="tablist" aria-label="Acesso à conta">
+        <button role="tab" aria-selected="true" data-auth-mode="login">
+          ENTRAR
+        </button>
+        <button role="tab" aria-selected="false" data-auth-mode="register">
+          CRIAR CONTA
+        </button>
+      </div>
+      <div class="auth-preview">
+        <b>ACESSO PROTEGIDO PELO FIREBASE</b><span>Use seu e-mail e senha para entrar. No cadastro, enviaremos uma confirmação para seu e-mail.</span>
+      </div>
+      <form id="auth-form" data-auth-mode="login">
+        <div id="auth-fields">
+        </div>
+        <button class="button auth-submit" type="submit" disabled>
+          CONTINUAR <span>↗</span>
+        </button>
+      </form>
+      <p id="auth-status" class="auth-status" role="status" aria-live="polite"></p>
+      <div id="auth-session" class="auth-session" hidden>
+        <span class="session-stamp">MEMBRO DO INNER CIRCLE</span><b id="session-name"></b><small id="session-email"></small>
+        <p id="session-verification"></p>
+        <button id="resend-verification" class="settings-secondary" type="button" hidden>
+          REENVIAR E-MAIL DE CONFIRMAÇÃO ↗
+        </button>
+        <button id="auth-signout" class="settings-danger" type="button">
+          SAIR DA CONTA
+        </button>
+      </div>
+      <button class="forgot-link" data-auth-mode="forgot">
+        ESQUECEU A SENHA?
+      </button>
+      <button class="back-login" data-auth-mode="login" hidden>
+        VOLTAR PARA LOGIN
+      </button>
+    </dialog>
+    <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+      <button class="account-close" data-settings-close aria-label="Fechar configurações">
+        ✕
+      </button>
+      <p class="eyebrow">VI / CENTRAL DE CONTROLE</p>
+      <h2 id="settings-title">PREFERÊNCIAS<br><em>DA CONTA.</em></h2>
+      <div class="settings-layout">
+        <nav class="settings-tabs" role="tablist" aria-label="Seções das configurações">
+          <button role="tab" aria-selected="true" data-settings-tab="profile">
+            PERFIL
+          </button>
+          <button role="tab" aria-selected="false" data-settings-tab="security">
+            SEGURANÇA
+          </button>
+          <button role="tab" aria-selected="false" data-settings-tab="display">
+            APARÊNCIA
+          </button>
+          <button role="tab" aria-selected="false" data-settings-tab="data">
+            PRIVACIDADE
+          </button>
+        </nav>
+        <section class="settings-panel" data-settings-panel="profile">
+          <h3>Seu perfil</h3>
+          <p class="settings-help">Personalize seu apelido e personagem. Quando estiver conectado, o perfil acompanha sua conta entre dispositivos.</p>
+          <label class="settings-label" for="profile-name">
+            APELIDO
+          </label>
+          <input class="settings-input" id="profile-name" maxlength="24" placeholder="Como quer ser chamado?">
+          <label class="settings-label" for="profile-avatar">
+            PERSONAGEM DO PERFIL
+          </label>
+          <select class="settings-input" id="profile-avatar">
+            <option value="none">
+              Sem personagem
+            </option>
+            <option value="lucia">
+              Lucia
+            </option>
+            <option value="jason">
+              Jason
+            </option>
+          </select>
+          <div class="profile-preview">
+            <span class="profile-avatar" id="profile-avatar-preview">VI</span><span><b id="profile-name-preview">Viajante de Leonida</b><small>PERFIL SUNSET STORIES</small></span>
+          </div>
+          <button id="save-profile" class="button settings-save" type="button">
+            SALVAR PERFIL <span>↗</span>
+          </button>
+        </section>
+        <section class="settings-panel" data-settings-panel="security" hidden>
+          <h3>Acesso e segurança</h3>
+          <p class="settings-help">Atualize sua senha ou encerre sua conta. A exclusão remove também o perfil, as preferências e a coleção sincronizada.</p>
+          <p id="security-signed-out" class="security-notice">Entre na sua conta para gerenciar o acesso.</p>
+          <div id="security-controls" hidden>
+            <div class="auth-field">
+              <label for="security-current">
+                SENHA ATUAL
+              </label>
+              <span class="password-control"><input class="settings-input" id="security-current" type="password" autocomplete="current-password" placeholder="Digite sua senha atual">
+              <button type="button" class="password-toggle" aria-label="Mostrar senha atual" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7S18.4 19 12 19 2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+              </span>
+            </div>
+            <div class="auth-field">
+              <label for="security-new">
+                NOVA SENHA
+              </label>
+              <span class="password-control"><input class="settings-input" id="security-new" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo de 8 caracteres">
+              <button type="button" class="password-toggle" aria-label="Mostrar nova senha" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7S18.4 19 12 19 2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+              </span>
+            </div>
+            <div class="auth-field">
+              <label for="security-confirm">
+                CONFIRMAR NOVA SENHA
+              </label>
+              <span class="password-control"><input class="settings-input" id="security-confirm" type="password" autocomplete="new-password" minlength="8" placeholder="Digite a nova senha novamente">
+              <button type="button" class="password-toggle" aria-label="Mostrar confirmação da nova senha" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7S18.4 19 12 19 2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+              </span>
+            </div>
+            <button id="change-password" class="button settings-save" type="button">
+              ATUALIZAR SENHA <span>↗</span>
+            </button>
+            <p id="account-security-status" class="auth-status" role="status" aria-live="polite"></p>
+            <div class="delete-account-card">
+              <b>EXCLUIR CONTA</b>
+              <p>Esta ação é permanente. Seu perfil, favoritos e preferências sincronizados serão removidos.</p>
+              <button id="delete-account" class="settings-danger" type="button">
+                EXCLUIR CONTA E DADOS
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="settings-panel" data-settings-panel="display" hidden>
+          <h3>Conforto visual</h3>
+          <p class="settings-help">Com login, suas preferências acompanham sua conta. Sem login, ficam apenas neste navegador.</p>
+          <label class="setting-row">
+            <span><b>Movimento reduzido</b><small>Desativa animações e rolagem suave.</small></span><input id="setting-motion" type="checkbox">
+          </label>
+          <label class="setting-row">
+            <span><b>Alto contraste</b><small>Realça textos, bordas e controles.</small></span><input id="setting-contrast" type="checkbox">
+          </label>
+          <label class="setting-row">
+            <span><b>Texto ampliado</b><small>Aumenta a leitura em toda a página.</small></span><input id="setting-large-text" type="checkbox">
+          </label>
+          <button id="save-display" class="button settings-save" type="button">
+            SALVAR PREFERÊNCIAS <span>↗</span>
+          </button>
+        </section>
+        <section class="settings-panel" data-settings-panel="data" hidden>
+          <h3>Privacidade e dados</h3>
+          <p class="settings-help">Perfil, preferências visuais e cenas favoritas são sincronizados com sua conta quando você entra. Sua escolha de Analytics fica neste navegador.</p>
+          <p id="cloud-status" class="cloud-status" role="status" aria-live="polite">Verificando sincronização…</p>
+          <label class="setting-row analytics-setting">
+            <span><b>Compartilhar métricas de uso</b><small>Ajuda a entender o uso do site. Você pode mudar de ideia quando quiser.</small></span><input id="setting-analytics" type="checkbox">
+          </label>
+          <div class="data-summary">
+            <span>ITENS NA COLEÇÃO</span><b id="settings-favorite-count">0</b>
+          </div>
+          <button id="export-data" class="settings-secondary" type="button">
+            EXPORTAR MEUS DADOS ↗
+          </button>
+          <button id="clear-data" class="settings-danger" type="button">
+            APAGAR DADOS SINCRONIZADOS
+          </button>
+          <a class="settings-privacy-link" href="privacidade.html">Ler política de privacidade ↗</a>
+        </section>
+      </div>
+    </dialog>
+    <dialog id="lightbox" aria-label="Visualizador de imagens">
+      <div class="lightbox-bar">
+        <span id="scene-count"></span>
+        <div class="lightbox-actions">
+          <button id="download-scene" class="download-lightbox" type="button">
+            ↓ <span>BAIXAR IMAGEM</span>
+          </button>
+          <button id="close-lightbox" aria-label="Fechar galeria">
+            FECHAR ✕
+          </button>
+        </div>
+      </div>
+      <img id="lightbox-image" alt="">
+      <div class="lightbox-bottom">
+        <button id="prev" aria-label="Imagem anterior">
+          ←
+        </button>
+        <p id="scene-title"></p>
+        <button id="next" aria-label="Próxima imagem">
+          →
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>

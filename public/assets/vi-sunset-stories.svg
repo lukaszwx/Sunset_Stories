@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">VI Sunset Stories</title>
+  <desc id="desc">Logo minimalista com VI branco e contorno lilás, sobre o nome Sunset Stories.</desc>
+  <g text-anchor="middle" font-family="Impact, 'Arial Narrow', sans-serif" font-weight="900">
+    <text x="600" y="284" font-size="300" letter-spacing="-14" fill="#fff4e8" stroke="#ae64bf" stroke-width="9" stroke-linejoin="round" paint-order="stroke fill">VI</text>
+    <text x="600" y="365" font-family="Arial, sans-serif" font-size="38" font-weight="700" letter-spacing="15" fill="#fff4e8">SUNSET STORIES</text>
+  </g>
+</svg>
